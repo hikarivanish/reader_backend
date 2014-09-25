@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="acount" namespace="/" extends="json-default">
+		<action name="login" class="me.hikari.action.AccountAction"
+			method="login">
+			<result name="login_result" type="json">
+				<param name="root">loginResult</param>
+			</result>
+		</action>
+		<action name="user" class="me.hikari.action.AccountAction"
+			method="userInfo">
+			<result name="success" type="json">
+				<param name="root">user</param>
+				<param name="excludeProperties">password</param>
+			</result>
+		</action>
+	</package>
+	<package name="rss" namespace="/" extends="json-default">
+		<action name="channel" class="me.hikari.action.RssAction"
+			method="retrieveItem">
+			<result type="json">
+				<param name="root">items</param>
+			</result>
+		</action>
+	</package>
+</struts>    

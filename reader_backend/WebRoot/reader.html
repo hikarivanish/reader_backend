@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" ng-app="readerApp">
+<head>
+<meta charset="utf-8">
+<title>Vanish Reader</title>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/vanishreader.css">
+<!-- <link rel="stylesheet" href="css/app.css"> -->
+<!-- <link rel="stylesheet" href="css/animations.css"> -->
+
+</head>
+<body ng-controller="UserCtrl">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">VanishReader</a>
+			</div>
+
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+				<p class="navbar-text navbar-right">
+					Hello <a href="#" class="navbar-link">{{user.userName}}</a>
+				</p>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class='row'>
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ul class="nav nav-sidebar">
+					<li class="active"><a href="#">Overview</a></li>
+					<li><a href="#">Reports</a></li>
+					<li><a href="#">Analytics</a></li>
+					<li><a href="#">Export</a></li>
+
+					<li ng-repeat="channel in user.channels" class="channel.channelId"><a
+						href="#/channel/{{channel.channelId}}/0">
+							{{channel.channelTitle}} </a></li>
+				</ul>
+			</div>
+
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"
+				 ng-view>
+				
+			</div>
+
+		</div>
+	</div>
+	<!-- /.container -->
+
+	<!-- <script src="bower_components/jquery/jquery.js"></script> -->
+	<script src="js/angular.js"></script>
+	<script src="js/angular-animate.js"></script>
+	<script src="js/angular-sanitize.min.js"></script>
+	<script src="js/angular-route.js"></script>
+	<script src="js/angular-resource.js"></script>
+	<script src="readerjs/app.js"></script>
+	<script src="readerjs/controllers.js"></script>
+	<script src="readerjs/services.js"></script>
+	<!-- <script src="readerjs/filters.js"></script>
+	<script src="readerjs/animations.js"></script> -->
+</body>
+</html>
